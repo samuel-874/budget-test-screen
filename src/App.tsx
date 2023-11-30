@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import  Budget  from './components/Budgets';
+import NavBar from './components/NavBar';
+import SideBar from './components/SideBar';
+import { Box } from "@chakra-ui/react";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box paddingLeft={{ md: "5rem"}} className="App">
+      <Routes>
+          <Route path='/' element={<Budget />} />
+          <Route path='/dashboard' element={<div>Home Page </div>} />
+          <Route path='/chats' element={<div>Chats Page</div>} />
+          <Route path='/reports' element={<div>Reports Page</div>} />
+          <Route path='/profile' element={<div>Profile Page</div>} />
+
+      </Routes>
+      <SideBar />
+      <NavBar />
+    </Box>
   );
 }
 
