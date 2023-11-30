@@ -72,6 +72,7 @@ import { budgets } from "./store";
                     bg={theme.appColors?.lightBlue} 
                     color={theme.appColors.blue}
                     fontWeight="bold">&#8358;</Text> 
+
                 <Text 
                     color="#707480" 
                     fontSize="14px" 
@@ -80,7 +81,9 @@ import { budgets } from "./store";
                     lineHeight={0} 
                     letterSpacing="-0.07px"  
                     className="budget">Monthly Budget</Text>
+
             </Box>
+
             <Box 
                 width="90dvw" 
                 height={{ base: "60px", md: "130px" }} 
@@ -100,8 +103,8 @@ import { budgets } from "./store";
             {/* TAB */}
             <Box marginY="2.5rem">
                 <Box 
-                    display="flex" 
-                    justifyContent="space-between"> 
+                  display="flex" 
+                  justifyContent="space-between"> 
 
                   <Box 
                     w="70%"
