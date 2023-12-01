@@ -8,7 +8,7 @@ import { Box } from "@chakra-ui/react";
 
 function App() {
   return (
-    <Box paddingLeft={{ md: "5rem"}} className="App">
+    <Box padding={"0.9rem"} paddingLeft={{ md: "5rem"}} className="App">
       <Routes>
           <Route path='/' element={<Budget />} />
           <Route path='/dashboard' element={<div>Home Page </div>} />

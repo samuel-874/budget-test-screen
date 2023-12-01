@@ -7,5 +7,12 @@ const appColors ={
     black: "#001233"
 }
 
+const fonts = {
+    heading: `'Circular Std Bold', 'Impact'`,
+    p: `'Circular Std Bold', 'Impact'`,
+    span: `'Circular Std Bold', 'Impact'`,
+    div: `'Circular Std Bold', 'Impact'`,
+}
+
 const theme = extendTheme({appColors})
 export { theme as default }

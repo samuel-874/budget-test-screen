@@ -10,9 +10,9 @@ import { budgets } from "./store";
 
     const [ currentTab, setCurrentTab ] = useState("THIS_MONTH");
     const [ currentMonthAnalysis, setMonthAnalysis ] = useState<MonthAnalysis>(InitialValue)
-
+    
     const theme = useTheme();
-    const months: MonthAnalysis[] = budgets
+    const months: MonthAnalysis[] = budgets;
 
     const tabs = [
         {label:"Last Month",value:"LAST_MONTH"},
@@ -37,6 +37,8 @@ import { budgets } from "./store";
     useEffect(() => {
        const month =  months.find( month => month.tab === currentTab);
        setMonthAnalysis(month|| InitialValue)
+       
+       
     },[currentTab])
 
 
@@ -75,11 +77,11 @@ import { budgets } from "./store";
 
                 <Text 
                     color="#707480" 
-                    fontSize="14px" 
+                    fontSize="16px" 
                     margin="0 0.6rem" 
-                    fontWeight="400" 
+                    fontWeight="600" 
                     lineHeight={0} 
-                    letterSpacing="-0.07px"  
+                    letterSpacing="-0.07px"
                     className="budget">Monthly Budget</Text>
 
             </Box>
@@ -118,6 +120,7 @@ import { budgets } from "./store";
                                     key={i}
                                     onClick={() => setCurrentTab(tab.value)}
                                     fontSize="18px"
+                                    fontWeight={600}
                                     cursor="pointer"
                                     color={tab.value === currentTab ? 
                                             theme.appColors?.blue : theme.appColors?.gray }
@@ -151,21 +154,25 @@ import { budgets } from "./store";
                         <Progress color={theme.appColors?.blue} 
                             progress={Math.floor((currentMonthAnalysis.totalSpent / currentMonthAnalysis.budget) * 100)} />
                         <Text 
+                            key={(currentMonthAnalysis.totalSpent / currentMonthAnalysis.budget) * 100}
+                            className="fade"
                             color={theme.appColors?.blue} 
                             fontSize="30px">
                             { `${Math.floor((currentMonthAnalysis.totalSpent / currentMonthAnalysis.budget) * 100)}%` }</Text>
                     </Box>
                 </div>
-                <Box textAlign="center" >
+                <Box textAlign="center"  >
                     <Text 
-                    fontSize="12px" 
+                    fontSize="15px" 
                     color={theme.appColors?.gray}
-                    marginY="0.5rem">
+                    marginY="0.5rem" fontWeight={600}>
                         Amount spent so far</Text>
                     <Box 
                         display="flex" 
                         justifyContent="center" 
-                        alignItems="center" 
+                        alignItems="center"
+                        fontSize="20px" 
+                        fontWeight={700}
                         color={theme.appColors.lightBlue} > 
                         <Text color={theme.appColors.blue}>
                             { formatCurrency(currentMonthAnalysis?.totalSpent)
@@ -178,7 +185,7 @@ import { budgets } from "./store";
                 </Box>
 
                 <div>
-                    <Text marginY="0.7rem" fontSize="20px">Category Breakdown</Text>
+                    <Text marginY="0.7rem" fontSize="21px" letterSpacing={"-0.105px"} fontWeight={600}>Category Breakdown</Text>
                      { currentMonthAnalysis &&  <Expenses monthAnalysis={currentMonthAnalysis} />}
                 </div>
                 </Box>
